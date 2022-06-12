@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <!-- 
+            Don't use <priority> or <changefreq> attributes. Those are typically ignored.
+            Make sure lastmod is always up to date.
+          -->
+        <loc>https://yoursite.com/link-two</loc>
+        <lastmod>2021-05-27</lastmod>
+    </url>
+    <url>
+        <loc>https://yoursite.com/link-one</loc>
+        <lastmod>2021-05-27</lastmod>
+    </url>
+</urlset>

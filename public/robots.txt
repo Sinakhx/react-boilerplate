@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /search
+Disallow: /search?*
+Disallow: /login
+# etc etc
+Sitemap: https://yoursite/sitemap_index.xml
+
+# Google adsbot ignores robots.txt unless specifically named
+# This bot is used by Google to review landing pages for Google Ads
+# Be careful blocking pages for adsbot as doing so incorrectly can
+# mess up your Adwords Campaigns.
+User-Agent: AdsBot-Google
+Disallow: /search
+Disallow: /search?*

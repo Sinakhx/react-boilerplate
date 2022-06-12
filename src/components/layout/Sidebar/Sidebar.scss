@@ -1,0 +1,67 @@
+.app-sidebar {
+    position: relative;
+    &.--open {
+        transition: 500ms;
+        width: 200px;
+    }
+    &.--closed {
+        transition: 500ms;
+        width: 90px;
+    }
+    border-inline-end: 1px solid #ccc;
+    height: 100vh;
+
+    .switch-btn {
+        position: absolute;
+        top: 42px;
+        width: 35px;
+        height: 35px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        cursor: pointer;
+        &:hover {
+            background-color: #ebebeb;
+        }
+        &.--open,
+        &.--closed {
+            transition: 500ms;
+            inset-inline-end: -18px;
+        }
+    }
+    .app-logo {
+        margin-block: 35px;
+        width: 50px;
+        height: 50px;
+        &.--open,
+        &.--closed {
+            transition: 500ms;
+            margin-inline-start: 8px;
+        }
+    }
+    .side-bar__link {
+        display: flex;
+        align-items: center;
+        padding: 25px;
+        padding-inline-end: 0;
+        &.--is-active {
+            background: linear-gradient(
+                270deg,
+                rgba(38, 103, 128, 0.1) 0%,
+                rgba(196, 196, 196, 0) 100%
+            );
+        }
+        img {
+            min-width: 30px;
+        }
+        .dashboard-btn {
+            font-size: 15px;
+            min-width: 130px;
+            margin-inline-start: 10px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+/* Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat)
+   https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap
+   font-family: 'Montserrat', sans-serif;
+*/
+/** =================== MONTSERRAT =================== **/
+
+/** Montserrat Regular **/
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./Montserrat-Regular.woff2") format("woff2"),
+    url("./Montserrat-Regular.woff") format("woff"),
+    url("./Montserrat-Regular.ttf") format("truetype");
+}
+/** Montserrat Bold **/
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-style: normal;
+  src: url("./Montserrat-Bold.woff2") format("woff2"),
+    url("./Montserrat-Bold.woff") format("woff"),
+    url("./Montserrat-Bold.ttf") format("truetype");
+}
+/** Montserrat Black **/
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 900;
+  font-style: normal;
+  src: url("./Montserrat-Black.woff2") format("woff2"),
+    url("./Montserrat-Black.woff") format("woff"),
+    url("./Montserrat-Black.ttf") format("truetype");
+}

@@ -1,0 +1,22 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    #loading {
+        display: inline-block;
+        border-style: solid;
+        border-radius: 50%;
+        justify-self: center;
+        align-self: center;
+        animation: spin 1s ease-in-out infinite;
+        -webkit-animation: spin 1s ease-in-out infinite;
+    }
+}
+
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

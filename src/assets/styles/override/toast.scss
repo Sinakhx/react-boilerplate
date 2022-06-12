@@ -1,0 +1,10 @@
+.Toastify__toast {
+    font-family: inherit;
+}
+
+.Toastify__toast-body {
+    font-family: $font-family !important;
+    font-size: rem(14px);
+    direction: rtl;
+    text-align: right;
+}

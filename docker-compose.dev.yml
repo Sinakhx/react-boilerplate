@@ -1,0 +1,13 @@
+version: "0.0.1"
+
+services:
+  app:
+    container_name: react-boilerplate-dev
+    image: react-boilerplate-dev
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 8000:8000

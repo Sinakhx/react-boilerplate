@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!--
+        Use this file if you want to break sitemaps into smaller chunks. Sitemaps
+        should not include pages blocked in robots.txt or with noindex tag as well
+        as other pages with little to no value. Ideally limit to 10,000 URLs each sitemap.
+        Generally a good idea to break sitemaps by content type if large site:
+        static pages (about, home), category and subcategory pages, and landing pages.
+        If your site is smaller than 10,000 URLs, likely best to delete sitemap index
+        and just use sitemap.xml
+        If your sitemaps are programmatically generated, it's usually better to put them
+        in your src/routes folder e.g. sitemap.xml.js, or something similar.
+    -->
+
+    <sitemap>
+        <loc>https://yoursite.com/sitemap.xml</loc>
+    </sitemap>
+
+</sitemapindex>

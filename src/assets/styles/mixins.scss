@@ -1,0 +1,36 @@
+// darkens background-color by 10% on hover (can darken other properties too)
+@mixin hoverable($bg-color, $property: background-color, $darken: 10%) {
+    #{$property}: $bg-color;
+    &:hover {
+        #{$property}: darken($bg-color, $darken);
+    }
+}
+
+// a unified custom scrollbar for components
+@mixin sinakhx-scrollbar($isVertical: true, $width: 5px) {
+    @if $isVertical {
+        overflow-y: auto;
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            width: $width;
+        }
+    } @else {
+        overflow-y: hidden;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            height: $width;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        @if $isVertical {
+            margin-block: 4px;
+        } @else {
+            margin-inline: 4px;
+        }
+        background-color: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #888888ad;
+        border-radius: 5px;
+    }
+}

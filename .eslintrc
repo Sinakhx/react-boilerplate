@@ -1,0 +1,61 @@
+{
+    "extends": ["airbnb-typescript", "airbnb/hooks"],
+    "plugins": ["react", "@typescript-eslint"],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+
+    "rules": {
+        "linebreak-style": "off"
+    },
+    "overrides": [
+        {
+            "files": ["**/*.tsx", "**/*.ts"],
+            "extends": ["plugin:@typescript-eslint/recommended"],
+
+            "parserOptions": {
+                "ecmaFeatures": {
+                    "jsx": true
+                },
+                "ecmaVersion": 2022,
+                "sourceType": "module",
+                "project": "./tsconfig.json"
+            },
+            "rules": {
+                "indent": "off",
+                "max-len": "off",
+                "no-tabs": "off",
+                "no-plusplus": "off",
+                "gaurd-for-in": "off",
+                "prefer-template": "off",
+                "react/prop-types": "off",
+                "no-param-reassign": "off",
+                "no-nested-ternary": "error",
+                "no-underscore-dangle": "off",
+                "no-restricted-syntax": "off",
+                "class-methods-use-this": "off",
+                "react/no-array-index-key": "off",
+                "react/react-in-jsx-scope": "off",
+                "react/require-default-props": "off",
+                "react-hooks/exhaustive-deps": "off",
+                "react/jsx-props-no-spreading": "off",
+                "react/destructuring-assignment": "off",
+                "import/no-cycle": "off",
+                "import/extensions": "off",
+                "import/prefer-default-export": "off",
+                "import/no-extraneous-dependencies": "off",
+                "@typescript-eslint/semi": "off",
+                "@typescript-eslint/indent": "off",
+                "@typescript-eslint/comma-dangle": "off",
+                "@typescript-eslint/space-infix-ops": "off",
+                "@typescript-eslint/no-non-null-assertion": "off"
+            }
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+version: "0.0.1"
+
+services:
+  app:
+    container_name: react-boilerplate-prod
+    image: react-boilerplate-prod
+    build:
+      context: .
+      target: production
