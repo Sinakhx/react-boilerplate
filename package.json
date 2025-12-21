@@ -40,10 +40,10 @@
         "lint:fix-styles": "stylelint --allow-empty-input \"**/*.scss\" --fix",
         "lint-staged": "lint-staged",
         "prettify": "prettier --write \"**/*.{ts,tsx,scss,css,md,json}\"",
-        "typecheck": "tsc --noEmit",
+        "typecheck": "tsc --noEmit --incremental",
+        "typecheck:watch": "tsc --noEmit --incremental --watch",
         "check:circular-dependencies": "dpdm --exit-code circular:1 --no-warning --no-tree ./src/**/index.{ts,tsx}",
-        "init:husky": "npx husky-init && husky install && husky set .husky/pre-commit 'npm run typecheck'",
-        "prepare": "husky",
+        "prepare": "husky install",
         "docker:img": "docker build -t sample:react-app .",
         "docker:dev": "docker-compose -f docker-compose.dev.yml up",
         "docker:prod": "docker-compose -f docker-compose.prod.yml up",
@@ -123,19 +123,6 @@
         "vite": "^7.3.0",
         "vite-plugin-svgr": "^4.5.0",
         "vitest": "^4.0.16"
-    },
-    "lint-staged": {
-        "*.{ts,tsx}": [
-            "eslint --fix",
-            "prettier --write"
-        ],
-        "*.{scss,css}": [
-            "stylelint --fix",
-            "prettier --write"
-        ],
-        "*.{json,md}": [
-            "prettier --write"
-        ]
     },
     "engines": {
         "node": ">=18.0.0",
