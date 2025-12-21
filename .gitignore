@@ -9,6 +9,8 @@ lerna-debug.log*
 
 *.local
 
+*.tsbuildinfo
+
 # external libs
 node_modules
 

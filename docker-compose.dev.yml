@@ -1,13 +1,36 @@
-version: "0.0.1"
+version: '3.9'
 
 services:
-  app:
-    container_name: react-boilerplate-dev
-    image: react-boilerplate-dev
-    build:
-      context: .
-      target: development
-    volumes:
-      - ./src:/app/src
-    ports:
-      - 8000:8000
+    app:
+        container_name: react-boilerplate-dev
+        image: react-boilerplate-dev
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - ./src:/app/src
+            - ./public:/app/public
+            - ./vite.config.ts:/app/vite.config.ts
+            - ./tsconfig.json:/app/tsconfig.json
+            - ./eslint.config.js:/app/eslint.config.js
+            - /app/node_modules # Prevent node_modules from being overwritten
+        ports:
+            - '8000:8000'
+        environment:
+            - NODE_ENV=development
+            - VITE_API_BASE_URL=${VITE_API_BASE_URL:-http://localhost:3000}
+        healthcheck:
+            test:
+                [
+                    'CMD',
+                    'wget',
+                    '--quiet',
+                    '--tries=1',
+                    '--spider',
+                    'http://localhost:8000'
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 10s
+        restart: unless-stopped

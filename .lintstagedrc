@@ -1,10 +1,5 @@
 {
-    "src/**/*.ts": [
-        "npm run lint:fix-ts",
-        "npm run prettier"
-    ],
-    "src/**/*.scss": [
-        "npm run lint:fix-styles",
-        "npm run prettier"
-    ]
+    "src/**/*.{ts,tsx}": ["npm run lint:fix-ts", "npm run prettier"],
+    "src/**/*.{scss,css}": ["npm run lint:fix-styles", "npm run prettier"],
+    "*.{json,md}": ["npm run prettier"]
 }
