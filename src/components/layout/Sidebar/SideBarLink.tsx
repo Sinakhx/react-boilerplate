@@ -1,8 +1,8 @@
-import clsx from 'clsx'
-import { memo, useCallback } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { memo } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import styles from './SideBarLink.module.css'
 
-interface ISideBarLinkProps {
+interface SideBarLinkProps {
     slug: string
     icon: string
     isOpen: boolean
@@ -10,22 +10,33 @@ interface ISideBarLinkProps {
 }
 
 export const SideBarLink = memo(
-    ({ slug, icon, isOpen, title }: ISideBarLinkProps) => {
-        const activeLink = window.location.pathname
-        const navigate = useNavigate()
-        const handleLinkClick = useCallback(() => navigate(slug), [slug])
+    ({ slug, icon, isOpen, title }: SideBarLinkProps) => {
+        const location = useLocation()
+        const isActive = location.pathname === slug
+
         return (
             <Link
                 to={slug}
-                onClick={handleLinkClick}
-                className={clsx(
-                    'side-bar__link',
-                    activeLink === slug && '--is-active'
-                )}
+                className={`${styles.link} ${isActive ? styles.active : ''}`}
+                aria-current={isActive ? 'page' : undefined}
             >
-                <img src={icon} alt={slug.slice(1)} />
-                {isOpen ? <span className='dashboard-btn'>{title}</span> : null}
+                <img
+                    src={icon}
+                    className={styles.icon}
+                    alt=''
+                    aria-hidden='true'
+                />
+                <span
+                    className={`${styles.title} ${isOpen ? styles.titleVisible : styles.titleHidden}`}
+                >
+                    {title}
+                </span>
             </Link>
         )
     }
 )
+
+// Add display name for debugging
+SideBarLink.displayName = 'SideBarLink'
+
+export default SideBarLink

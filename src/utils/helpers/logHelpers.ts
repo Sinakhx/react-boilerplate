@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify'
+import { toast } from 'sonner'
 
 // define log level
 type LogLevel = 'console' | 'toast' | 'both'

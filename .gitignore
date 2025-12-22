@@ -18,6 +18,7 @@ node_modules
 build
 dist
 dist-ssr
+storybook-static
 
 # editor directories and files
 # .vscode/*

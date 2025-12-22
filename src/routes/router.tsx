@@ -1,23 +1,21 @@
-import { Loading } from '@/components/common/Loading/Loading'
 import { Suspense, lazy } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { Route, Routes } from 'react-router-dom'
-// import { ToastContainer } from 'react-toastify'
-import dir from './slugs'
+import ErrorFallback from './ErrorFallback'
+import LoadingFallback from './LoadingFallback'
 
-const Home = lazy(() => import('../pages/SamplePage/SamplePage'))
-const NotFound404 = lazy(() => import('../pages/404/NotFound404'))
+const HomePage = lazy(() => import('../pages/SamplePage/SamplePage'))
+const NotFoundPage = lazy(() => import('../pages/404/NotFound404'))
 
-function Router() {
+export default function Router() {
     return (
-        <Suspense fallback={<Loading />}>
-            <Routes>
-                <Route path={dir.home} element={<Home />} />
-                <Route path={dir.lastPage} element={<NotFound404 />} />
-                <Route path='*' element={<NotFound404 />} />
-            </Routes>
-            {/* <ToastContainer /> */}
-        </Suspense>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Suspense fallback={<LoadingFallback />}>
+                <Routes>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='*' element={<NotFoundPage />} />
+                </Routes>
+            </Suspense>
+        </ErrorBoundary>
     )
 }
-
-export default Router

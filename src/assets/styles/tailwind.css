@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+    html {
+        font-family: 'Montserrat', system-ui, sans-serif;
+    }
+
+    body {
+        @apply tw-bg-gray-50 tw-text-gray-900 dark:tw-bg-gray-900 dark:tw-text-gray-100;
+    }
+
+    h1 {
+        @apply tw-text-3xl tw-font-bold tw-mb-4;
+    }
+
+    h2 {
+        @apply tw-text-2xl tw-font-bold tw-mb-3;
+    }
+
+    h3 {
+        @apply tw-text-xl tw-font-bold tw-mb-2;
+    }
+}
+
+/* Custom component classes */
+@layer components {
+    .btn {
+        @apply tw-px-4 tw-py-2 tw-rounded-md tw-font-medium tw-transition-colors;
+    }
+
+    .btn-primary {
+        @apply tw-bg-primary-600 tw-text-white hover:tw-bg-primary-700 focus:tw-ring-2 focus:tw-ring-primary-500 focus:tw-ring-offset-2;
+    }
+
+    .btn-secondary {
+        @apply tw-bg-secondary-600 tw-text-white hover:tw-bg-secondary-700 focus:tw-ring-2 focus:tw-ring-secondary-500 focus:tw-ring-offset-2;
+    }
+
+    .card {
+        @apply tw-bg-white tw-rounded-lg tw-shadow-md tw-p-6 dark:tw-bg-gray-800;
+    }
+
+    .form-input {
+        @apply tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-shadow-sm focus:tw-border-primary-500 focus:tw-ring-primary-500;
+    }
+}
+
+/* Custom utility classes */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .text-pretty {
+        text-wrap: pretty;
+    }
+}
+
+/* CSS Variables for theming */
+:root {
+    --color-primary: theme('colors.primary.600');
+    --color-secondary: theme('colors.secondary.600');
+    --font-sans: theme('fontFamily.sans');
+}
+
+/* Dark mode variables */
+.dark {
+    --color-primary: theme('colors.primary.400');
+    --color-secondary: theme('colors.secondary.400');
+}

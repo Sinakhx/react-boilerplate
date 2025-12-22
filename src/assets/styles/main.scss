@@ -1,5 +1,142 @@
-// global styles go here
+/* main.scss - Main stylesheet that integrates modern reset with Tailwind CSS */
 
-@import './normalize.scss'; // or @import './reset.scss'; (choose one based on your needs)
-@import './variables.scss';
-@import './override/toast.scss';
+/* Import modern reset first to establish baseline styles */
+@import './modern-reset.scss';
+
+/* Import Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles that extend Tailwind */
+@layer base {
+    /* Add any base styles that should override Tailwind's base */
+    html {
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+        text-rendering: optimizeLegibility;
+    }
+}
+
+@layer components {
+    /* Add reusable component classes */
+    .btn-primary {
+        @apply px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors;
+    }
+
+    .card {
+        @apply bg-white rounded-lg shadow-md p-6;
+    }
+
+    .form-input {
+        @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+    }
+}
+
+@layer utilities {
+    /* Add custom utilities */
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .text-pretty {
+        text-wrap: pretty;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+/* Global variables */
+:root {
+    --content-width: 1280px;
+    --header-height: 64px;
+    --sidebar-width: 250px;
+    --footer-height: 60px;
+
+    /* Theme colors - can be overridden by Tailwind but useful for CSS custom properties */
+    --color-primary: theme('colors.blue.600');
+    --color-secondary: theme('colors.purple.600');
+    --color-success: theme('colors.green.500');
+    --color-warning: theme('colors.yellow.500');
+    --color-error: theme('colors.red.500');
+    --color-info: theme('colors.sky.500');
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: theme('colors.blue.400');
+        --color-secondary: theme('colors.purple.400');
+    }
+}
+
+/* Container queries for component-level responsiveness */
+@supports (container-type: inline-size) {
+    .cq-card {
+        container-type: inline-size;
+        container-name: card;
+    }
+
+    @container card (min-width: 400px) {
+        .cq-card-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+    }
+}
+
+/* Modern CSS features */
+.gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(
+        to right,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+}
+
+.multi-column-text {
+    column-count: 2;
+    column-gap: 2rem;
+
+    @media (max-width: 768px) {
+        column-count: 1;
+    }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+    }
+
+    a[href]::after {
+        content: ' (' attr(href) ')';
+    }
+}

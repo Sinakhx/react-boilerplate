@@ -1,0 +1,24 @@
+/* CSS Module for SideBarLink component */
+.link {
+    @apply tw-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-md tw-transition-all tw-duration-200 tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white;
+}
+
+.active {
+    @apply tw-bg-primary-700 tw-text-white;
+}
+
+.icon {
+    @apply tw-w-6 tw-h-6 tw-mr-0;
+}
+
+.title {
+    @apply tw-ml-3 tw-font-medium tw-transition-opacity tw-duration-200 tw-whitespace-nowrap;
+}
+
+.titleHidden {
+    @apply tw-opacity-0 tw-w-0 tw-overflow-hidden;
+}
+
+.titleVisible {
+    @apply tw-opacity-100 tw-w-auto;
+}

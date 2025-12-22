@@ -1,0 +1,47 @@
+/* CSS Module for Sidebar component */
+.sidebar {
+    @apply tw-fixed tw-left-0 tw-top-0 tw-h-full tw-bg-gray-800 tw-text-white tw-transition-all tw-duration-300 tw-ease-in-out tw-z-50;
+}
+
+.open {
+    @apply tw-w-64;
+}
+
+.closed {
+    @apply tw-w-20;
+}
+
+.logo {
+    @apply tw-w-12 tw-h-12 tw-mx-auto tw-my-4 tw-transition-all tw-duration-300;
+}
+
+.logoOpen {
+    @apply tw-mx-4;
+}
+
+.logoClosed {
+    @apply tw-mx-auto;
+}
+
+.switchBtn {
+    @apply tw-absolute tw-right-0 tw-top-4 tw-transform tw-translate-x-1/2 tw-bg-primary-600 tw-text-white tw-rounded-full tw-p-2 tw-cursor-pointer tw-transition-all tw-duration-300;
+}
+
+.switchBtnOpen {
+    @apply tw-rotate-0;
+}
+
+.switchBtnClosed {
+    @apply tw-rotate-180;
+}
+
+.navigation {
+    @apply tw-mt-8 tw-flex tw-flex-col tw-gap-2 tw-px-4;
+}
+
+/* Export CSS variables for potential theming */
+:export {
+    sidebarWidth: 16rem; /* 64px * 4 = 256px = 16rem */
+    sidebarCollapsedWidth: 5rem; /* 20px * 4 = 80px = 5rem */
+    transitionDuration: 300ms;
+}
