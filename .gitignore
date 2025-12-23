@@ -9,6 +9,8 @@ lerna-debug.log*
 
 *.local
 
+*.tsbuildinfo
+
 # external libs
 node_modules
 
@@ -16,6 +18,7 @@ node_modules
 build
 dist
 dist-ssr
+storybook-static
 
 # editor directories and files
 # .vscode/*
@@ -33,7 +36,6 @@ dist-ssr
 
 # lock files
 yarn.lock
-package-lock.json
 pnpm-lock.yaml
 
 # coverage files

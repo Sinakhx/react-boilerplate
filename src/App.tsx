@@ -1,12 +1,11 @@
-import { QueryClientProvider } from 'react-query'
-import { BrowserRouter } from 'react-router-dom'
-
-import Router from '@/routes/router'
+import '@/assets/styles/app.scss'
 import { Sidebar } from '@/components'
 import { queryClient } from '@/config/api/reactQueryConfig'
-
-import '@/assets/styles/app.scss'
-import 'react-toastify/dist/ReactToastify.css'
+import Router from '@/routes/router'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { BrowserRouter } from 'react-router-dom'
+import { Toaster } from 'sonner'
 
 function App() {
     return (
@@ -14,7 +13,9 @@ function App() {
             <BrowserRouter>
                 <Sidebar />
                 <Router />
+                <Toaster position='top-right' richColors />
             </BrowserRouter>
+            {import.meta.env.DEV && <ReactQueryDevtools />}
         </QueryClientProvider>
     )
 }

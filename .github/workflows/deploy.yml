@@ -1,0 +1,53 @@
+name: Deploy
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v6
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build
+              run: npm run build
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            - name: Login to Docker Hub
+              uses: docker/login-action@v3
+              with:
+                  username: ${{ secrets.DOCKER_HUB_USERNAME }}
+                  password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+            - name: Build and push Docker image
+              uses: docker/build-push-action@v6
+              with:
+                  context: .
+                  push: true
+                  tags: ${{ secrets.DOCKER_HUB_USERNAME }}/react-boilerplate:latest
+                  target: production
+                  cache-from: type=gha
+                  cache-to: type=gha,mode=max
+
+            # Example deployment to a cloud provider (uncomment and customize as needed)
+            # - name: Deploy to cloud
+            #   uses: some-cloud-provider/deploy-action@v1
+            #   with:
+            #     api-key: ${{ secrets.CLOUD_API_KEY }}
+            #     app-name: react-boilerplate
+            #     docker-image: ${{ secrets.DOCKER_HUB_USERNAME }}/react-boilerplate:latest

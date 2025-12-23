@@ -1,17 +1,22 @@
 [development]
-last 1 version
+last 2 versions
 Firefox ESR
 not dead
+maintained node versions
 
 [production]
-> 1%
-ie 10
+> 0.5%
+last 2 versions
 Firefox ESR
 not dead
+maintained node versions
 
 [modern]
-last 1 chrome version
-last 1 firefox version
+last 2 chrome versions
+last 2 firefox versions
+last 2 safari versions
+last 2 edge versions
 
 [ssr]
-node 14
+node 18
+node 20

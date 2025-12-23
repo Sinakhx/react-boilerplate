@@ -1,9 +1,31 @@
-version: "0.0.1"
+version: '3.9'
 
 services:
-  app:
-    container_name: react-boilerplate-prod
-    image: react-boilerplate-prod
-    build:
-      context: .
-      target: production
+    app:
+        container_name: react-boilerplate-prod
+        image: react-boilerplate-prod
+        build:
+            context: .
+            target: production
+        ports:
+            - '80:80'
+        healthcheck:
+            test:
+                [
+                    'CMD',
+                    'wget',
+                    '--quiet',
+                    '--tries=1',
+                    '--spider',
+                    'http://localhost/'
+                ]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+            start_period: 10s
+        restart: unless-stopped
+        deploy:
+            resources:
+                limits:
+                    cpus: '0.5'
+                    memory: 512M

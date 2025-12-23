@@ -1,6 +1,6 @@
-import logo from '/favicon.svg'
 import { Button } from './components'
 import './SamplePage.scss'
+import logo from '/favicon.svg'
 
 export default function SamplePage() {
     return (
@@ -16,7 +16,7 @@ export default function SamplePage() {
             <p>
                 <a
                     className='App-link'
-                    href='https://reactjs.org'
+                    href='https://react.dev'
                     target='_blank'
                     rel='noopener noreferrer'
                 >
@@ -25,7 +25,7 @@ export default function SamplePage() {
                 {' | '}
                 <a
                     className='App-link'
-                    href='https://vitejs.dev/guide/features.html'
+                    href='https://vite.dev/'
                     target='_blank'
                     rel='noopener noreferrer'
                 >

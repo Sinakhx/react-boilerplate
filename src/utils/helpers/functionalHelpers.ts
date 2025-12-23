@@ -3,7 +3,7 @@ export const convertToFormData = (
 ): FormData => {
     const formData = new FormData()
     for (const key in fieldsList) {
-        formData.append(key, fieldsList[key])
+        formData.append(key, fieldsList[key] as Blob)
     }
     return formData
 }

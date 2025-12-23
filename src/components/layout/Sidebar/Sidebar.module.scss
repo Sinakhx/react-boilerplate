@@ -1,0 +1,49 @@
+@use "tailwindcss" as *;
+
+/* CSS Module for Sidebar component */
+.sidebar {
+    @apply fixed left-0 top-0 h-full bg-gray-800 text-white transition-all duration-300 ease-in-out z-50;
+}
+
+.open {
+    @apply w-64;
+}
+
+.closed {
+    @apply w-20;
+}
+
+.logo {
+    @apply w-12 h-12 mx-auto my-4 transition-all duration-300;
+}
+
+.logoOpen {
+    @apply mx-4;
+}
+
+.logoClosed {
+    @apply mx-auto;
+}
+
+.switchBtn {
+    @apply absolute right-0 top-4 transform translate-x-1/2 bg-blue-600 text-white rounded-full p-2 cursor-pointer transition-all duration-300;
+}
+
+.switchBtnOpen {
+    @apply rotate-0;
+}
+
+.switchBtnClosed {
+    @apply rotate-180;
+}
+
+.navigation {
+    @apply mt-8 flex flex-col gap-2 px-4;
+}
+
+/* Export CSS variables for potential theming */
+:export {
+    sidebarWidth: 16rem; /* 64px * 4 = 256px = 16rem */
+    sidebarCollapsedWidth: 5rem; /* 20px * 4 = 80px = 5rem */
+    transitionDuration: 300ms;
+}

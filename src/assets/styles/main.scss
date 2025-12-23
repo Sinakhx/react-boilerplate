@@ -1,5 +1,261 @@
-// global styles go here
+@use "tailwindcss";
 
-@import './normalize.scss'; // or @import './reset.scss'; (choose one based on your needs)
-@import './variables.scss';
-@import './override/toast.scss';
+/* Custom styles that extend Tailwind */
+@layer base {
+    /* Add any base styles that should override or extend Tailwind's base */
+    html {
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Ensure smooth scrolling for the whole page */
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    /* Add reusable component classes */
+    .btn-primary {
+        @apply px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    .btn-secondary {
+        @apply px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    .card {
+        @apply bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900/30 p-6;
+    }
+
+    .form-input {
+        @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white;
+    }
+
+    .form-label {
+        @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+    }
+}
+
+@layer utilities {
+    /* Add custom utilities */
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .text-pretty {
+        text-wrap: pretty;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .scrollbar-thin {
+        scrollbar-width: thin;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #f3f4f6;
+
+            @media (prefers-color-scheme: dark) {
+                background-color: #1f2937;
+            }
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 9999px;
+
+            @media (prefers-color-scheme: dark) {
+                background-color: #4b5563;
+            }
+
+            &:hover {
+                background-color: #9ca3af;
+
+                @media (prefers-color-scheme: dark) {
+                    background-color: #6b7280;
+                }
+            }
+        }
+    }
+}
+
+/* Global variables */
+:root {
+    --content-width: 1280px;
+    --header-height: 64px;
+    --sidebar-width: 250px;
+    --footer-height: 60px;
+
+    /* Theme colors - using actual values instead of theme() function */
+    --color-primary: #2563eb; /* blue-600 */
+    --color-secondary: #7c3aed; /* purple-600 */
+    --color-success: #22c55e; /* green-500 */
+    --color-warning: #eab308; /* yellow-500 */
+    --color-error: #ef4444; /* red-500 */
+    --color-info: #0ea5e9; /* sky-500 */
+}
+
+/* Dark mode adjustments - using CSS classes for better control */
+.dark {
+    --color-primary: #60a5fa; /* blue-400 */
+    --color-secondary: #a855f7; /* purple-400 */
+}
+
+/* Alternatively, if you want to support system preference AND class-based dark mode */
+@media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+        --color-primary: #60a5fa;
+        --color-secondary: #a855f7;
+    }
+}
+
+/* Container queries for component-level responsiveness */
+@supports (container-type: inline-size) {
+    .cq-card {
+        container-type: inline-size;
+        container-name: card;
+    }
+
+    @container card (min-width: 400px) {
+        .cq-card-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+    }
+}
+
+/* Modern CSS features */
+.gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(
+        to right,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+
+    /* Fallback for browsers that don't support background-clip: text */
+    @supports not (background-clip: text) {
+        color: var(--color-primary);
+    }
+}
+
+.multi-column-text {
+    column-count: 2;
+    column-gap: 2rem;
+    column-rule: 1px solid #e5e7eb; /* gray-200 */
+
+    @media (max-width: 768px) {
+        column-count: 1;
+        column-rule: none;
+    }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus visible polyfill for better accessibility */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Selection styles */
+::selection {
+    background-color: rgba(37, 99, 235, 0.3); /* blue-600 with opacity */
+    color: currentColor;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    a[href]::after {
+        content: ' (' attr(href) ')';
+        font-size: 10pt;
+    }
+
+    /* Ensure good print contrast */
+    * {
+        color: black !important;
+        background: white !important;
+        box-shadow: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        border: 2px solid black;
+    }
+
+    .form-input {
+        border: 2px solid;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

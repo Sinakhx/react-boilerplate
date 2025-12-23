@@ -1,0 +1,206 @@
+/* modern-reset.scss - A modern CSS reset for 2026 that works well with Tailwind CSS */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Modern form element styling */
+button,
+input,
+select,
+textarea {
+    background-color: transparent;
+    border-radius: 0;
+}
+
+/* Remove default button styling */
+button {
+    border: none;
+    cursor: pointer;
+}
+
+/* Remove list styling when using semantic lists but styling with other means */
+ul[class],
+ol[class] {
+    list-style: none;
+    padding: 0;
+}
+
+/* Modern focus styles with better accessibility */
+:focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;
+}
+
+/* Improve consistency of default fonts */
+code,
+kbd,
+samp,
+pre {
+    font-family:
+        ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
+        monospace;
+    font-size: 1em;
+}
+
+/* Improve text selection */
+::selection {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+/* Improve default vertical rhythm */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* Standardize heading sizes for better consistency with Tailwind */
+h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+
+h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+h5 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+h6 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* Improve table defaults */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Ensure SVGs are properly sized */
+svg {
+    display: block;
+    vertical-align: middle;
+}
+
+/* Ensure proper display for details/summary */
+summary {
+    cursor: pointer;
+    display: list-item;
+}
+
+/* Ensure proper display for dialog element */
+dialog {
+    padding: 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    margin: auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure proper display for progress element */
+progress {
+    vertical-align: baseline;
+}

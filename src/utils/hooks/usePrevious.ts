@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
  * @returns the previous value of props or state
  */
 export const usePrevious = <T>(value: T) => {
-    const ref = useRef<T | undefined>()
+    const ref = useRef<T | undefined | null>(null)
 
     useEffect(() => {
         ref.current = value
