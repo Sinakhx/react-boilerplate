@@ -1,4 +1,4 @@
-@use "tailwindcss" as *;
+@use 'tailwindcss' as *;
 
 /* CSS Module for Sidebar component */
 .sidebar {
@@ -39,11 +39,4 @@
 
 .navigation {
     @apply mt-8 flex flex-col gap-2 px-4;
-}
-
-/* Export CSS variables for potential theming */
-:export {
-    sidebarWidth: 16rem; /* 64px * 4 = 256px = 16rem */
-    sidebarCollapsedWidth: 5rem; /* 20px * 4 = 80px = 5rem */
-    transitionDuration: 300ms;
 }

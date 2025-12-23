@@ -1,16 +1,40 @@
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import tseslint from '@typescript-eslint/eslint-plugin'
+import eslintParser from '@typescript-eslint/parser'
+import eslintPluginImport from 'eslint-plugin-import'
+import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y'
 import eslintPluginReact from 'eslint-plugin-react'
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
-import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y'
-import eslintPluginImport from 'eslint-plugin-import'
-import eslintPluginStorybook from 'eslint-plugin-storybook'
+import globals from 'globals'
+import path from 'path'
 
-export default tseslint.config(
+export default [
+    {
+        ignores: [
+            'node_modules/**',
+            'build/**',
+            'dist/**',
+            'coverage/**',
+            '.storybook/**',
+            'storybook-static/**',
+            '*.config.js',
+            '*.config.ts',
+            'vite.config.*',
+            'vitest.config.*',
+            'tailwind.config.*',
+            'postcss.config.*',
+            '.eslintrc.*',
+            '.gitignore',
+            'package*.json',
+            'tsconfig*.json',
+            'README.md',
+            '.husky/**',
+            '__mocks__/**',
+            'public/**'
+        ]
+    },
     {
         // Base configuration for all files
-        files: ['**/*.{js,jsx,ts,tsx}'],
-        ignores: ['node_modules/**', 'build/**', 'dist/**', 'coverage/**'],
+        files: ['src/**/*.{js,jsx,ts,tsx}'],
         languageOptions: {
             ecmaVersion: 'latest',
             sourceType: 'module',
@@ -19,16 +43,17 @@ export default tseslint.config(
                 ...globals.es2024,
                 ...globals.node
             },
-            parser: tseslint.parser,
+            parser: eslintParser,
             parserOptions: {
                 project: './tsconfig.json',
+                tsconfigRootDir: path.resolve('./'),
                 ecmaFeatures: {
                     jsx: true
                 }
             }
         },
         plugins: {
-            '@typescript-eslint': tseslint.plugin,
+            '@typescript-eslint': tseslint,
             react: eslintPluginReact,
             'react-hooks': eslintPluginReactHooks,
             'jsx-a11y': eslintPluginJsxA11y,
@@ -68,27 +93,17 @@ export default tseslint.config(
             'no-debugger': 'warn',
             'no-nested-ternary': 'warn',
             'no-param-reassign': 'off',
-            'prefer-const': 'warn',
-            'prettier/prettier': 'warn'
-        }
-    },
-
-    // Storybook specific configuration
-    {
-        files: ['**/*.stories.{ts,tsx}', '.storybook/**/*'],
-        plugins: {
-            storybook: eslintPluginStorybook
-        },
-        rules: {
-            'storybook/hierarchy-separator': 'warn',
-            'storybook/default-exports': 'warn',
-            'import/no-default-export': 'off'
+            'prefer-const': 'warn'
         }
     },
 
     // Test files configuration
     {
-        files: ['**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}', '**/tests/**/*'],
+        files: [
+            'src/**/*.test.{ts,tsx}',
+            'src/**/*.spec.{ts,tsx}',
+            'src/**/tests/**/*'
+        ],
         languageOptions: {
             globals: globals.vitest
         },
@@ -97,4 +112,4 @@ export default tseslint.config(
             'no-console': 'off'
         }
     }
-)
+]

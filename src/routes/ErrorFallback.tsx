@@ -1,4 +1,12 @@
-const ErrorFallback = ({ error, resetErrorBoundary }: any) => (
+interface ErrorFallbackComponentProps {
+    error: Error
+    resetErrorBoundary: () => void
+}
+
+const ErrorFallback = ({
+    error,
+    resetErrorBoundary
+}: ErrorFallbackComponentProps) => (
     <div className='flex flex-col items-center justify-center min-h-screen gap-4'>
         <h1 className='text-2xl font-bold'>Oops, something went wrong</h1>
         <p className='text-gray-600'>{error.message}</p>
