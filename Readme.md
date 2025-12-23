@@ -1,5 +1,7 @@
 # About
 
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Sinakhx/react-boilerplate?utm_source=oss&utm_medium=github&utm_campaign=Sinakhx%2Freact-boilerplate&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+
 This project is created using `react`, `typescript`, `vite` & `scss` with prepared configurations for **_dockerizing_** the project & **_client-side release scripts_** with **_automatic changelog generation_**. Local hooks for **_type-checking_**, **_testing_** & **_linting_** are also included which can be further configured, improved & reused in ci/cd pipelines.
 
 > **2026 Update**: This boilerplate now uses React 19, TypeScript 5.9, Vite 7, and modern ESLint 9 flat configuration. It includes TanStack Query 5 for data fetching and improved error handling.
