@@ -13,11 +13,11 @@ jobs:
             pull-requests: write
             contents: write
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
 
             - name: Dependabot metadata
               id: metadata
-              uses: dependabot/fetch-metadata@v1
+              uses: dependabot/fetch-metadata@v2
               with:
                   github-token: '${{ secrets.GITHUB_TOKEN }}'
 
@@ -32,10 +32,10 @@ jobs:
         name: Check for outdated dependencies
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
 
             - name: Set up Node.js
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v6
               with:
                   node-version: '20'
                   cache: 'npm'
