@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/Sinakhx/react-boilerplate/compare/v0.2.2...v0.2.3) (2025-12-23)
+
+
+### Features
+
+* add coderabbit config ([10c633d](https://github.com/Sinakhx/react-boilerplate/commit/10c633dd899ed374d1322f24d40f8c20fe739644))
+
+
+### Bug Fixes
+
+* coderabbit config ([91553ec](https://github.com/Sinakhx/react-boilerplate/commit/91553ec6dacae7981b74301211ac8e97c93a7c4c))
+
 ### [0.2.2](https://github.com/Sinakhx/react-boilerplate/compare/v0.2.1...v0.2.2) (2025-12-23)
 
 
