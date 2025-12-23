@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 # CodeRabbit AI Configuration
 # This file configures CodeRabbit's automated code review behavior
 
@@ -51,41 +52,40 @@ knowledge_base:
     scope: global  # Learn from all issues
 
 # Tool configurations
-reviews:
-  tools:
-    # ESLint for JavaScript/TypeScript linting
-    eslint:
-      enabled: true
-    
-    # Gitleaks for secret detection
-    gitleaks:
-      enabled: true
-    
-    # PMD for Java code quality (if applicable)
-    pmd:
-      enabled: false
-    
-    # SwiftLint for Swift code (if applicable)
-    swiftlint:
-      enabled: false
-    
-    # golangci-lint for Go code (if applicable)
-    golangci-lint:
-      enabled: false
-    
-    # CircleCI configuration validation
-    circleci:
-      enabled: true
-    
-    # LanguageTool for grammar and style checking
-    languagetool:
-      enabled: true
-      level: default
-    
-    # ast-grep for custom code analysis
-    ast-grep:
-      enabled: true
-      essential_rules: true
+tools:
+  # ESLint for JavaScript/TypeScript linting
+  eslint:
+    enabled: true
+  
+  # Gitleaks for secret detection
+  gitleaks:
+    enabled: true
+  
+  # PMD for Java code quality (if applicable)
+  pmd:
+    enabled: false
+  
+  # SwiftLint for Swift code (if applicable)
+  swiftlint:
+    enabled: false
+  
+  # golangci-lint for Go code (if applicable)
+  golangci-lint:
+    enabled: false
+  
+  # CircleCI configuration validation
+  circleci:
+    enabled: true
+  
+  # LanguageTool for grammar and style checking
+  languagetool:
+    enabled: true
+    level: default
+  
+  # ast-grep for custom code analysis
+  ast-grep:
+    enabled: true
+    essential_rules: true
 
 # GitHub Checks integration
 github-checks:
