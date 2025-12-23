@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/Sinakhx/react-boilerplate/compare/v0.2.0...v0.2.1) (2025-12-23)
+
+
+### Bug Fixes
+
+* added lock file and removed it from gitignore ([d3f5226](https://github.com/Sinakhx/react-boilerplate/commit/d3f5226a3b39207f7ff41a158caecf0dbc97f5ff))
+* eslint issues ([baeedaa](https://github.com/Sinakhx/react-boilerplate/commit/baeedaac8b62978a0fd53ee1875203c4427561a5))
+
 ## [0.2.0](https://github.com/Sinakhx/react-boilerplate/compare/v0.0.1...v0.2.0) (2025-12-23)
 
 
