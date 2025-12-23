@@ -126,10 +126,11 @@ This boilerplate includes several modern features for React development in 2026:
 
 - **React 19**: Latest React features and improvements
 - **TypeScript 5.9**: Enhanced type safety with modern TypeScript features
-- **Vite 7**: Lightning-fast build tool with native ESM support
+- **Vite 6**: Lightning-fast build tool with native ESM support
 - **ESLint 9 Flat Config**: Modern ESLint configuration format
 - **TanStack Query 5**: Powerful data fetching and state management
 - **React Router 7**: Modern routing with improved performance
+- **Storybook 8**: Storybook for component development and documentation
 - **Improved Error Handling**: Better error boundaries and error handling utilities
 - **Modern Testing**: Updated testing utilities with Vitest and React Testing Library
 
