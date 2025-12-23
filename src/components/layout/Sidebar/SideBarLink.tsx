@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import styles from './SideBarLink.module.css'
+import styles from './SideBarLink.module.scss'
 
 interface SideBarLinkProps {
     slug: string

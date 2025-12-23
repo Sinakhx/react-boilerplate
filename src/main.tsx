@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import '@/assets/styles/main.scss'
-import '@/assets/styles/tailwind.css'
 import App from './App'
 import ErrorFallback from './routes/ErrorFallback'
 

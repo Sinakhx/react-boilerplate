@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import slugs from '@/routes/slugs'
 import addIcon from '@/assets/icons/add.svg'
 import { SideBarLink } from './SideBarLink'
-import styles from './Sidebar.module.css'
+import styles from './Sidebar.module.scss'
 
 export const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true)

@@ -1,0 +1,26 @@
+@use "tailwindcss" as *;
+
+/* CSS Module for SideBarLink component */
+.link {
+    @apply flex items-center px-4 py-3 rounded-md transition-all duration-200 text-gray-300 hover:bg-gray-700 hover:text-white;
+}
+
+.active {
+    @apply bg-blue-700 text-white;
+}
+
+.icon {
+    @apply w-6 h-6 mr-0;
+}
+
+.title {
+    @apply ml-3 font-medium transition-opacity duration-200 whitespace-nowrap;
+}
+
+.titleHidden {
+    @apply opacity-0 w-0 overflow-hidden;
+}
+
+.titleVisible {
+    @apply opacity-100 w-auto;
+}
