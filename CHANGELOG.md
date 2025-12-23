@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/Sinakhx/react-boilerplate/compare/v0.2.1...v0.2.2) (2025-12-23)
+
+
+### Bug Fixes
+
+* github actions workflows and versions ([7ddf241](https://github.com/Sinakhx/react-boilerplate/commit/7ddf241e05b245ca1dc1811541b3ad88fb0e283d))
+
 ### [0.2.1](https://github.com/Sinakhx/react-boilerplate/compare/v0.2.0...v0.2.1) (2025-12-23)
 
 

@@ -1,7 +1,7 @@
 {
     "name": "react-boilerplate",
     "private": true,
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Enterprise-ready React boilerplate with TypeScript, Vite and modern tooling for 2026",
     "author": "Sina Khodabandehloo <khodabandehloo.sina@gmail.com>",
     "homepage": "https://github.com/Sinakhx/react-boilerplate#readme",
