@@ -5,8 +5,8 @@
 language: en-US
 
 reviews:
-  # Review profile: can be "chill", "assertive", or "balanced"
-  profile: balanced
+  # Review profile: can be "chill" or "assertive"
+  profile: chill
   
   # Generate high-level summary of review findings
   high_level_summary: true
@@ -35,14 +35,46 @@ reviews:
     description:
       mode: warning
   
-  # Chat integration settings
-  chat:
-    auto_reply: true
-  
-  # Integrations with other tools
-  integrations:
-    jira:
-      usage: disabled  # Enable if you use Jira
+  # Tool configurations
+  tools:
+    # ESLint for JavaScript/TypeScript linting
+    eslint:
+      enabled: true
+    
+    # Gitleaks for secret detection
+    gitleaks:
+      enabled: true
+    
+    # PMD for Java code quality (if applicable)
+    pmd:
+      enabled: false
+    
+    # SwiftLint for Swift code (if applicable)
+    swiftlint:
+      enabled: false
+    
+    # golangci-lint for Go code (if applicable)
+    golangci-lint:
+      enabled: false
+    
+    # CircleCI configuration validation
+    circleci:
+      enabled: true
+    
+    # LanguageTool for grammar and style checking
+    languagetool:
+      enabled: true
+      level: default
+    
+    # ast-grep for custom code analysis
+    ast-grep:
+      enabled: true
+      essential_rules: true
+    
+    # GitHub Checks integration
+    github-checks:
+      enabled: true
+      timeout_ms: 120000  # 2 minutes timeout
 
 # Learning settings
 knowledge_base:
@@ -51,43 +83,11 @@ knowledge_base:
   issues:
     scope: global  # Learn from all issues
 
-# Tool configurations
-tools:
-  # ESLint for JavaScript/TypeScript linting
-  eslint:
-    enabled: true
+# Chat integration settings
+chat:
+  auto_reply: true
   
-  # Gitleaks for secret detection
-  gitleaks:
-    enabled: true
-  
-  # PMD for Java code quality (if applicable)
-  pmd:
-    enabled: false
-  
-  # SwiftLint for Swift code (if applicable)
-  swiftlint:
-    enabled: false
-  
-  # golangci-lint for Go code (if applicable)
-  golangci-lint:
-    enabled: false
-  
-  # CircleCI configuration validation
-  circleci:
-    enabled: true
-  
-  # LanguageTool for grammar and style checking
-  languagetool:
-    enabled: true
-    level: default
-  
-  # ast-grep for custom code analysis
-  ast-grep:
-    enabled: true
-    essential_rules: true
-
-# GitHub Checks integration
-github-checks:
-  enabled: true
-  timeout_ms: 120000  # 2 minutes timeout
+  # Integrations with other tools
+  integrations:
+    jira:
+      usage: disabled  # Enable if you use Jira
