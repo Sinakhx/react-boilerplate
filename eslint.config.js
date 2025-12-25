@@ -4,8 +4,10 @@ import eslintPluginImport from 'eslint-plugin-import'
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y'
 import eslintPluginReact from 'eslint-plugin-react'
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
+import yamlPlugin from 'eslint-plugin-yml'
 import globals from 'globals'
 import path from 'path'
+import yamlParser from 'yaml-eslint-parser'
 
 export default [
     {
@@ -110,6 +112,31 @@ export default [
         rules: {
             '@typescript-eslint/no-explicit-any': 'off',
             'no-console': 'off'
+        }
+    },
+    {
+        files: ['**/*.{yaml,yml}'],
+        languageOptions: {
+            parser: yamlParser
+        },
+        plugins: {
+            yml: yamlPlugin
+        },
+        rules: {
+            'yml/no-empty-document': 'error',
+            'yml/no-empty-mapping-value': 'warn',
+            'yml/no-empty-key': 'error',
+            'yml/no-empty-sequence-entry': 'error',
+            'yml/no-multiple-empty-lines': 'warn',
+            'yml/no-irregular-whitespace': 'error',
+            'yml/require-string-key': 'error',
+            // Let Prettier handle the following rules
+            'yml/plain-scalar': 'off',
+            'yml/quotes': 'off',
+            'yml/sort-keys': 'off',
+            'yml/key-spacing': 'off',
+            'yml/block-mapping': 'off',
+            'yml/indent': 'off'
         }
     }
 ]

@@ -3,7 +3,7 @@ name: Dependency Updates
 on:
     schedule:
         - cron: '0 0 * * 1' # Run weekly on Mondays
-    workflow_dispatch: # Allow manual triggering
+    workflow_dispatch: null # Allow manual triggering
 
 jobs:
     dependabot-auto-merge:

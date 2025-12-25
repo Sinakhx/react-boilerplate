@@ -3,7 +3,7 @@ name: Deploy
 on:
     push:
         branches: [main]
-    workflow_dispatch:
+    workflow_dispatch: null
 
 jobs:
     deploy:
