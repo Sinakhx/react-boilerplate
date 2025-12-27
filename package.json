@@ -79,7 +79,7 @@
         "@commitlint/cli": "^20.2.0",
         "@commitlint/config-conventional": "^20.2.0",
         "@storybook/react-vite": "^8.5.0",
-        "@storybook/test": "^8.5.0",
+        "@storybook/test": "^8.6.14",
         "@tailwindcss/postcss": "^4.1.18",
         "@tailwindcss/vite": "^4.1.18",
         "@testing-library/dom": "^10.4.1",
